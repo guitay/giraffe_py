@@ -29,6 +29,7 @@ def formatsql():
             '\n union ',\
             '\n union all ',\
             '\n case when ',\
+            '\n order by ',\
             '\n group by ']
 
     result=subject

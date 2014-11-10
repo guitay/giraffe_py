@@ -5,23 +5,21 @@ import re
 tk = Tkinter.Tk()
 frame = Tkinter.Frame(tk, relief=RIDGE, borderwidth=2)
 frame.pack(fill=BOTH,expand=1)
-label = Tkinter.Label(frame, text="Hello, World")
-label.pack(fill=X, expand=1)
 
 text = Tkinter.Text(frame)
 text.pack(side=TOP)
 
 def formatsql():
     subject = text.get('0.0','100.100')
-    regex = ['(\W+inner\W+join\W+)',\
-            '(\W+left\W+join\W+)',\
-            '(\W+left\W+outer\W+join\W+)',\
-            '(\W+where\W+)',\
-            '(\W+union\W+)',\
-            '(\W+union\W+all\W+)',\
-            '(\W+case\W+when\W+)',\
-            '(\W+order\W+by\W+)',\
-            '(\W+group\W+by\W+)']
+    regex = ['(\s+inner\s+join\s+)',\
+            '(\s+left\s+join\s+)',\
+            '(\s+left\s+outer\s+join\s+)',\
+            '(\s+where\s+)',\
+            '(\s+union\s+)',\
+            '(\s+union\s+all\s+)',\
+            '(\s+case\s+when\s+)',\
+            '(\s+order\s+by\s+)',\
+            '(\s+group\s+by\s+)']
     newstr = ['\n inner join ',\
             '\n left join ',\
             '\n left outer join ',\
@@ -35,7 +33,7 @@ def formatsql():
     result=subject
     number=0
     for i in range(len(regex)):
-        result, number = re.subn(regex[i], newstr[i], result)
+        result, number = re.subn(regex[i], newstr[i], result,flags=re.IGNORECASE)
     #print subject
     text.delete('0.0','100.100')
     text.insert(END, result)

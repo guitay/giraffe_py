@@ -3,4 +3,4 @@
 
 ::set path = D:\python\Python27\Scripts
 
-d:\python\Python27\Scripts\cxfreeze.bat ../Main.py --target-dir ../dist
+d:\python\Python27\Scripts\cxfreeze.bat --base-name=Win32GUI ../Main.py --target-dir ../dist

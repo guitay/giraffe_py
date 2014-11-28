@@ -11,7 +11,9 @@ text.pack(side=TOP)
 
 def formatsql():
     subject = text.get('0.0','100.100')
-    regex = ['(\s+inner\s+join\s+)',\
+    regex = ['(\s+select\s+)',\
+			'(\s+from\s+)',\
+			'(\s+inner\s+join\s+)',\
             '(\s+left\s+join\s+)',\
             '(\s+left\s+outer\s+join\s+)',\
             '(\s+where\s+)',\
@@ -20,7 +22,9 @@ def formatsql():
             '(\s+case\s+when\s+)',\
             '(\s+order\s+by\s+)',\
             '(\s+group\s+by\s+)']
-    newstr = ['\n inner join ',\
+    newstr = ['\n select ',\
+			'\n from ',\
+			'\n inner join ',\
             '\n left join ',\
             '\n left outer join ',\
             '\n where ',\
